@@ -1,0 +1,52 @@
+<html>
+  <head>
+    <title>Login</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+	<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+	<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+	<script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+	<script	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script> 
+	<script	src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+  	<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+	<script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+	<script src="https://code.angularjs.org/1.5.0-rc.2/angular-route.min.js"></script>
+	<script src="angularjs/signin.js"></script>
+  </head>
+  <body ng-app="signin" ng-controller="signin">
+    	</br></br>
+    <div class="panel panel-primary col-md-offset-4 col-md-4">
+      <!-- Default panel contents -->
+        <div class="panel-heading">Login</div>
+        <div class="panel-body">
+           <form class="form-horizontal" role="form">
+		        <div class="form-group  usernameDiv">
+		           	<input type="text" class="form-control" name="inputUsername" id="inputUsername" placeholder="UserName" ng-model="username">
+		        </div>
+	            <div class="form-group  usernameDiv">
+	                <input type="password" class="form-control" name="inputPassword" id="inputPassword" placeholder="Password" ng-model="password">
+	            </div>
+	            <div style="margin: 10px;">
+	                <div class="alert alert-danger" ng-show="invalid_login">
+						<strong>Incorrect username or password</strong>
+				    </div>
+				    <div class="alert alert-danger" ng-show="unexpected_error">
+						<strong>Unexpected error, try again</strong>
+				    </div>
+				</div>
+	            <div class="form-group pull-left signIn ">
+	                <button type="submit" class="btn btn-primary" ng-click="signIn();">Sign in</button>
+	            </div>
+            </form>
+        </div>     <!-- end panel body -->
+	</div>        <!-- end panel heading -->
+ 
+ 	<div class="form-group col-md-offset-3 col-md-6 text-center">
+	    <button type="submit" ng-click="displaySignup();" class="btn btn-primary">New User? &nbsp Sign up here for free! </button>
+	</div>
+		
+ </body>
+</html>

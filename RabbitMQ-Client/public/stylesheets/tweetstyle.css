@@ -1,0 +1,59 @@
+body {
+	padding-top:0px;
+	width: 100%;
+    height: 100%;
+	width: 100%;
+    height: 100%;
+    font-family: "Source Sans Pro","Helvetica Neue",Helvetica,Arial,sans-serif;
+    background-color: #f2f2f2;
+}
+.well{
+background-color: white;	
+}
+.well:hover{
+	background-color: #f2f2f2;
+}
+
+.userprofile{
+background-color: white;	
+}
+.userprofile:hover{
+	background-color: white;
+}
+
+a{
+color:black;
+}
+a:hover{
+	text-decoration: underline;
+	color: #00B7FF;
+}
+gr{
+	color:#808080;	
+}
+bl{
+	color: #00B7FF;
+}
+
+.homeheader{
+background-color: white;
+height: 90%;
+}
+
+.submit-btn {
+	background-color: #b1dbff;
+	margin: 10px 0 10px 0;
+}
+
+.post {
+	padding: 10px;
+	margin-bottom: 5px;
+	border-radius: 5px;
+}
+
+
+.form-auth {
+	max-width: 330px;
+	padding: 5px;
+	margin: 0 auto;
+}

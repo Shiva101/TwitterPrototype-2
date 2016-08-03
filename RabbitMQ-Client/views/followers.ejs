@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<title>Twitter App</title>
+<head>
+    <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script> 
+    <script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script> 
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <script src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
+    <link rel="stylesheet" href="../stylesheets/style.css">
+    <link rel="stylesheet" href="../stylesheets/tweetstyle.css">
+    <link rel="stylesheet" href="../stylesheets/following.css">
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script src="https://code.angularjs.org/1.5.0-rc.2/angular-route.min.js"></script>
+    <script src="../angularjs/follower.js"></script>
+  </head>
+
+<body ng-app="following" ng-controller="mainController">
+
+    <div id="header-bar" class="row homeheader"  style="font-weight:bold" ;>
+        
+        <div id="home"class= "col-md-offset- col-sm-4" align="left">
+            <form action="/homepage" method="get">
+              <input type="submit" value="Home"  class="btn btn-success"/>
+            </form>        
+        </div> <!-- Close home div-->
+
+        <div id="icon" class= "col-md-offset-0 col-sm-4" align="center">
+          <img src="../twitter-128.png" width="40x" height="40px" />
+        </div> <!-- Close icon div-->
+
+        <div id="logout"class= "col-md-offset-0 col-sm-4" align="right">
+            <form action="/logout" method="post">
+              <input type="submit" value="Logout"  class="btn btn-success"/>
+            </form>        
+        </div> <!-- Close logout div--> 
+
+    </div>  <!-- Close header-bar  div-->
+
+    <h3 align="center">Hi <%= username %>,&nbsp Welcome to Twitter! </h3>
+
+    <div id="main-section" class="row" ;>
+        <div id="userprofile"class= "col-md-offset- col-sm-3" align="left" ng-init="userProfile()">
+          <div class="userprofile well ">
+            <b><a href="/users/<%= username %>"><tun><%= username %></tun></a></b></br></br>
+            <gr>Tweets:</gr> <a href="/users/<%= username %>"><bl>{{myTweetsCount}}</bl></a></br></br>
+            <gr>Following:</gr> <a href="/<%= username %>/following"><bl>{{followingCount}}</bl></a></br></br>
+            <gr>Followers:</gr> <a href="/<%= username %>/followers"><bl>{{followersCount}}</bl></a></br></br>        
+            <a href="/editprofile"><gr>Edit Profile</gr></a></br>
+          </div> 
+        </div> <!-- Close userprofile  div--> 
+
+        <div id="FollowingListGrid"class= "col-md-offset- col-sm-8 " align="left">        
+          <div id="followingList">
+              <h4>Following  {{search_result}}</h4>
+              <div class="well col-sm-4 well-profile" ng-repeat="followingName in followers"> 
+                  <b><a href="/user/{{followingName.follower}}">{{followingName.follower}}</a></b>
+                    </br></br></br>
+                  <div ng-hide="buttons" align="right">
+                      <div id="following" ng-hide="followingbutton">
+                        <button ng-init="bname_1='Following'" type="submit" ng-mouseover="bname_1='Unfollow'" ng-mouseleave="bname_1='Following'" ng-click="unfollow();"> {{bname_1}}</Button>
+                      </div>
+                      <div id="follow"  ng-hide="true">
+                         <button ng-init= "bname_2='Follow'" type="submit" ng-click="follow();"> {{bname_2}}</Button>
+                      </div>
+                  </div> <!-- end ng-hide buttons section -->
+
+              </div> <!-- end well ng-repeat section -->
+
+          </div>  <!-- Close followingList div--> 
+        </div> <!-- Close FollowingListGrid  div--> 
+
+    </div> <!-- Close main-section  filed   div--> 
+
+  </body>
+</html>

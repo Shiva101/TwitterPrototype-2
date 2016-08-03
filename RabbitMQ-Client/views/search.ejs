@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<title>Twitter App</title>
+<head>
+    <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script> 
+    <script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script> 
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <script src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
+    <link rel="stylesheet" href="../stylesheets/style.css">
+    <link rel="stylesheet" href="../stylesheets/tweetstyle.css">
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script src="https://code.angularjs.org/1.5.0-rc.2/angular-route.min.js"></script>
+    <script src="../angularjs/search.js"></script>
+  </head>
+
+<body ng-app="tweetApp" ng-controller="mainController" >
+
+    <div id="header-bar" class="row homeheader"  style="font-weight:bold" ;>
+        
+        <div id="home"class= "col-md-offset- col-sm-4" align="left">
+            <form action="/homepage" method="get">
+              <input type="submit" value="Home"  class="btn btn-success"/>
+            </form>        
+        </div> <!-- Close home div-->
+
+        <div id="icon" class= "col-md-offset-0 col-sm-4" align="center">
+          <img src="../twitter-128.png" width="40x" height="40px" />
+        </div> <!-- Close icon div-->
+
+        <div id="logout"class= "col-md-offset-0 col-sm-4" align="right">
+            <form action="/logout" method="post">
+              <input type="submit" value="Logout"  class="btn btn-success"/>
+            </form>        
+        </div> <!-- Close logout div--> 
+
+    </div>  <!-- Close header-bar  div-->
+
+    <h3 align="center">Hi <%= sessionUsername %>,&nbsp you searched for "<%= q %>" </h3>
+    <p ng-hide="true" id="username"><%= sessionUsername%></p>
+    
+    <div id="main-section" class="row col-md-offset-3 col-sm-6" align="left"  >
+
+        <div id="serachtweets" >
+          <form ng-Submit="searchTweets();">
+            <!-- <input required type="text" class="form-control" placeholder="Your name" ng-model="username" /> -->
+            <textarea required class="form-control" maxlength="40" rows="2" placeholder="Search Tweets" ng-model="searchKeyword"></textarea>
+            <input class="btn submit-btn pull-right" type="submit" value="Search" />
+        </form>
+        </div> <!-- Close search filed   div--> <br> <br> <br>
+
+        
+       <div id="tweet-stream" ng-init="userProfile()">
+    
+              <div class="well" ng-repeat="tweet in searchTweets ">
+            <b><a href="/users/{{tweet.username}}">{{tweet.username}}</a></b>
+            <gr> @{{tweet.username}}</gr>
+            <p>{{tweet.text}}</p>   
+            <small class="pull-right">{{tweet.time | date:"h:mma 'on' MMM d, y"}}</small>
+              </div>
+    
+      </div>  <!-- Close tweet-stream div--> 
+
+        
+
+        
+    
+    </div> <!-- Close main-section  filed   div
+
+  </body>
+</html>

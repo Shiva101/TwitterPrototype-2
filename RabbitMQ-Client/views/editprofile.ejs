@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<title>Twitter App</title>
+<head>
+    <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <script src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
+    <script src="js/md5.min.js"></script>
+    <link rel="stylesheet" href="../stylesheets/style.css">
+    <link rel="stylesheet" href="../stylesheets/tweetstyle.css">
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script src="https://code.angularjs.org/1.5.0-rc.2/angular-route.min.js"></script>
+    <script src="../angularjs/editprofile.js"></script>
+  </head>
+
+<body ng-app="editprofile" ng-controller="mainController">
+
+    <div id="header-bar" class="row" style="background-color: #b3e6ff" style="font-weight:bold" ;>
+        
+        <div id="home"class= "col-md-offset- col-sm-4" align="left">
+            <form action="/homepage" method="get">
+              <input type="submit" value="Home"  class="btn btn-success"/>
+            </form>        
+        </div> <!-- Close home div-->
+
+        <div id="icon" class= "col-md-offset-0 col-sm-4" align="center">
+          <img src="../twitter-128.png" width="40x" height="40px" />
+        </div> <!-- Close icon div-->
+
+        <div id="logout"class= "col-md-offset-0 col-sm-4" align="right">
+            <form action="/logout" method="post">
+              <input type="submit" value="Logout"  class="btn btn-success"/>
+            </form>        
+        </div> <!-- Close logout div--> 
+
+    </div>  <!-- Close header-bar  div-->
+    <h3 align="center">Hi <%= username %>,&nbsp Edit your profile </h3>
+
+
+    <div id="main-section" class="row" ;>
+        
+        <div id="userprofile"class= "col-md-offset- col-sm-3" align="left">
+        <div class="well"><b><a href="/users/<%= username %>"><%= username %></a></b></br></br>
+            <b>Tweets:</b> {{totalTweets}}</br></br>
+            <b>Following:</b> {{followingCount}}</br></br>
+            <b>Followers:</b> {{followersCount}}</br></br>         
+            <a href="/editprofile">Edit Profile</a></br>
+          </div> 
+        </div> <!-- Close userprofile  div--> 
+
+
+        <div id="editprofile"class= "col-md-offset- col-sm-6" align="left">
+        <form id="editprofile" ng-submit="editprofile();">
+          <div class="well"><b><a href="/user/<%= username %>"><%= username %></a></br></br>
+        
+            <p>Password: <input type="password" ng-model="password" value="{{data[0].password}}" required></input> </p>
+            <p>FirstName: <input type="text" ng-model="firstname" value="{{data[0].firstname}}" required></input> </p>
+            <p>LastName: <input type="text" ng-model="lastname" value="{{data[0].lastname}}" required></input> </p>
+            <p>Email: <input type="email" ng-model="email" value="{{data[0].email}}" required></input> </p>
+            <p>Gender: 
+                      <select name="inputGender" ng-model="gender" value="{{data[0].gender}}">
+                        <option value="M">Male</option>
+                        <option value="F">Female</option>
+                        <option value="O">Other</option>
+                      </select>
+            </p>
+            <p>Date of Birth: <input type="date" ng-model="dob" value="{{data[0].dob | date:"m/d/yyyy"}}" ></input> </p>
+            <p>Location: <input type="text" ng-model="location" value="{{data[0].location}}" ></input> </p>
+            <p>Contact information: <input  type="text" max="9999999999999" ng-model="contact_information" 
+            value="{{data.contact_information}}" ></input> </p>
+            <p><input class="btn submit-btn" type="submit" value="Edit Profile" /></br></p>
+          </div>    <!-- Close well  div--> 
+        </form>       <!-- close form-->
+        </div> <!-- Close editprofile  div--> 
+
+    </div> <!-- Close main-section  filed   div--> 
+
+  </body>
+</html>

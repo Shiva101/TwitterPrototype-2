@@ -1,0 +1,80 @@
+<html>
+  <head>
+    <head>
+    <title>Signup</title>
+    <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+	<script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+	<script src="http://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+	<script	src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+	<script src="https://code.angularjs.org/1.5.0-rc.2/angular-route.min.js"></script>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+	<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+	<script	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script> 
+	
+	<!-- Loading the AngularJS file from /public/angularJS folder -->
+	<script src="angularjs/signup.js"></script>
+  </head>
+  </head>
+  
+  <body ng-app="signup" ng-controller="signup">
+  	</br></br>
+    <!-- This panel is for signup -->
+    <div class="panel panel-primary col-md-offset-4 col-md-4">
+      <!-- Default panel contents -->
+        <div class="panel-heading">Signup</div>
+        <div class="panel-body">
+           <form class="form-horizontal" role="form">
+	            <div class="form-group  usernameDiv">
+	                <input type="text" class="form-control" name="inputUsername" id="inputUsername" placeholder="UserName" ng-model="username" required>
+	            </div>
+	            <div class="form-group  usernameDiv">
+	                <input type="text" class="form-control" name="inputFirstname" id="inputFirstName" placeholder="First Name" ng-model="firstname" required>
+	            </div>
+	            <div class="form-group  usernameDiv">
+	                <input type="text" class="form-control" name="inputLastname" id="inputLastName" placeholder="Last Name" ng-model="lastname" required>
+	            </div>
+	            <div class="form-group  usernameDiv">		                  
+	                <input type="text" class="form-control" name="email" id="email" placeholder="something@domain.com"  ng-model="email" required>
+	            </div>
+	            <div class="form-group  usernameDiv">
+	                <input type="date" class="form-control" name="inputDOB" id="dateOfBirth"  value="2014-01-01" ng-model="dob" required>
+	            </div>        
+	            <div class="form-group  usernameDiv">
+	            	<div class="col-md-6"> 
+	              		<label>Chose your gender</label>
+	              	</div>
+	                <div class="col-md-3">
+	                    <select name="inputGender" ng-model="gender">
+						    <option value="M">Male</option>
+						    <option value="F">Female</option>
+						    <option value="O">Other</option>
+						</select>
+	                 </div>
+	              </div>
+	              <div class="form-group  usernameDiv">
+	                    <input type="password" class="form-control" name="inputPassword" id="inputPassword" ng-model="password" placeholder="Password">
+	               </div>
+	               <div style="margin: 10px;">
+				    	<div class="alert alert-danger" ng-show="unexpected_error">
+							<strong>Unexpected error, try again</strong>
+					    </div>
+					</div>      
+	              <div class="form-group ">
+	                <div class="pull-left signIn">
+	                  <button type="submit" class="btn btn-primary" ng-click="signUp();">Sign Up</button>
+	                </div>
+	              </div>
+              </form>
+        </div>    <!-- end panel body -->
+	</div>
+		
+	<div class="form-group col-md-offset-3 col-md-6 text-center">
+	    <button type="submit" ng-click="displaySignin();" class="btn btn-primary">Registered User? &nbsp Sign In here ! </button>
+	</div>
+ </body>
+ 
+</html>
